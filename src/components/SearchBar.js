@@ -5,6 +5,7 @@ import "./SearchBar.css";
 
 const SearchBar = () => {
   const [actorName, setActorName] = useState("");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
 
   const handleInputChange = (event) => {
@@ -13,9 +14,12 @@ const SearchBar = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const trimmedActorName = actorName ? actorName.trim() : "";
-    if (trimmedActorName !== "") {
+    const trimmedActorName = actorName.trim();
+    if (trimmedActorName === "") {
+      setError("Please enter the actor's name");
+    } else {
       dispatch(searchMovies(trimmedActorName));
+      setError("");
     }
   };
 
@@ -32,6 +36,7 @@ const SearchBar = () => {
             placeholder="Enter actor's name"
           />
         </div>
+        {error && <div className="error">{error}</div>}
         <button type="submit" onClick={handleSubmit}>
           Search
         </button>
