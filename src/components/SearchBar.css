@@ -56,3 +56,7 @@ button[type="submit"] {
   max-width: 400px;
   width: 100%;
 }
+.error {
+  color: red;
+  margin-top: 5px;
+}

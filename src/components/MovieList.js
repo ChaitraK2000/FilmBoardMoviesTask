@@ -1,4 +1,3 @@
-// components/MovieList.js
 import React, { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./MovieList.css";

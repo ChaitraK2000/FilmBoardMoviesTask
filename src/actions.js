@@ -1,4 +1,3 @@
-// actions.js
 import axios from "axios";
 
 const API_KEY = "fee90a6c87d9740bf3337578cbbdfbaf";
@@ -26,19 +25,19 @@ export const searchMovies = (actorName, page) => {
               dispatch({
                 type: "FETCH_MOVIES_SUCCESS",
                 payload: movies,
-                page
+                page,
               });
             })
             .catch((error) => {
               dispatch({
                 type: "FETCH_MOVIES_FAILURE",
-                payload: error.message
+                payload: "Failed to fetch movies. Please try again.",
               });
             });
         } else {
           dispatch({
             type: "FETCH_MOVIES_FAILURE",
-            payload: "No movies found for the specified actor."
+            payload: "No movies found for the specified actor.",
           });
         }
       })
